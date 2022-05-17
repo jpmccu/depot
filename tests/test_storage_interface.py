@@ -150,6 +150,7 @@ class BaseStorageTestFixture(object):
         f = self.fs.get(file_id)
 
         self.fs.replace(f, b'NEW CONTENT')
+        assert self.fs.exists(file_id)
         f2 = self.fs.get(f.file_id)
 
         assert f2.file_id == f.file_id
